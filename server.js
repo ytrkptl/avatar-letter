@@ -28,7 +28,6 @@ app.use(cors(corsOptions));
 
 //routes
 app.use("/api", routes);
-
 // error Handler middlerware. Must keep it down here at the very end
 app.use((req, res, next) => {
   let err = new Error("Not Found");
