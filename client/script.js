@@ -1,4 +1,3 @@
-const fetchBtn = document.getElementById("fetch-btn");
 const fetchFileBtn = document.getElementById("fetch-file");
 const avatarLetterImgFull = document.getElementById("avatar-letter-img-full");
 const avatarLetterImgLarge = document.getElementById("avatar-letter-img-large");
@@ -29,82 +28,25 @@ function arrayBufferToBase64(buffer) {
   return window.btoa(binary);
 }
 
-const getData = async () => {
+const getFiles = async () => {
   try {
     let promiseArray = ["full", "large", "big", "med", "small", "tiny"].map(
       async (el) => {
         try {
           const res = await fetch(
-            `http://localhost:5000/api/avatar-letter/${el}/${letter}`
+            `http://localhost:5000/api/avatar-letter/file/${el}/${letter}/webp`
           );
-          return await res.json();
+          return res;
         } catch (err) {
-          return console.log(err);
+          console.log(err);
         }
       }
     );
-    await Promise.all(promiseArray)
-      .then(function (resultsArray) {
-        // do something after the loop finishes
-        resultsArray.map((el, index) => {
-          // let imgData = arrayBufferToBase64(el[0].imageBlob.data.data);
-          avatarLetterImages[index].setAttribute(
-            "src",
-            "data:image/png;base64, " + el
-          );
-        });
-      })
-      .catch(function (err) {
-        // do something when any of the promises in array are rejected
-        console.log(err.message);
-      });
-
-    // const data = await res.json();
-    // // function to encode file data to base64 encoded string
-    // let imgData = arrayBufferToBase64(data[0].imageBlob.data.data);
-    // avatarLetterImgFull.setAttribute(
-    // "src",
-    // "data:image/png;base64, " + imgData
-    // );
-    // const res = await fetch(
-    //   `http://localhost:5000/api/avatar-letter/large/${letter}`
-    // );
-    // const data = await res.json();
-    // // function to encode file data to base64 encoded string
-    // let imgData = arrayBufferToBase64(data[0].imageBlob.data.data);
-    // avatarLetterImgLarge.setAttribute(
-    //   "src",
-    //   "data:image/png;base64, " + imgData
-    // );
-    // const res2 = await fetch(
-    //   `http://localhost:5000/api/avatar-letter/large/${letter}`
-    // );
-    // const data2 = await res2.json();
-    // avatarLetterImgLarge.setAttribute("src", data2);
-    // const res3 = await fetch(
-    //   `http://localhost:5000/api/avatar-letter/small/${letter}`
-    // );
-    // const data3 = await res3.json();
-    // avatarLetterImgSmall.setAttribute("src", data3);
-    // const res4 = await fetch(
-    //   `http://localhost:5000/api/avatar-letter/all/${letter}`
-    // );
-    // const data4 = await res4.json();
-    // imageElem.src = 'data:image/jpeg;base64,' + buf.toString('base64');
-
-    // avatarLetterImg.setAttribute("src", data4);
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
-const getFile = async () => {
-  try {
-    const res = await fetch(
-      `http://localhost:5000/api/avatar-letter/file/full/${letter}/webp`
-    );
-    // const res = await fetch(`https://robohash.org/ds`);
-    return await res.json();
+    const resultsArray = await Promise.all(promiseArray);
+    resultsArray.map((el, index) => {
+      // console.log(el);
+      avatarLetterImages[index].setAttribute("src", el.url);
+    });
   } catch (error) {
     console.log(error.message);
   }
@@ -119,7 +61,6 @@ const resetLetterInput = () => {
   console.log(letterInput);
 };
 
-fetchBtn.addEventListener("click", getData);
-fetchFileBtn.addEventListener("click", getFile);
+fetchFileBtn.addEventListener("click", getFiles);
 letterInput.addEventListener("input", changeLetter);
 resetInput.addEventListener("click", resetLetterInput);
