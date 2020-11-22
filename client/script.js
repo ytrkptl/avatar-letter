@@ -1,4 +1,5 @@
 const fetchBtn = document.getElementById("fetch-btn");
+const fetchFileBtn = document.getElementById("fetch-file");
 const avatarLetterImgFull = document.getElementById("avatar-letter-img-full");
 const avatarLetterImgLarge = document.getElementById("avatar-letter-img-large");
 const avatarLetterImgBig = document.getElementById("avatar-letter-img-big");
@@ -97,6 +98,18 @@ const getData = async () => {
   }
 };
 
+const getFile = async () => {
+  try {
+    const res = await fetch(
+      `http://localhost:5000/api/avatar-letter/file/full/${letter}/webp`
+    );
+    // const res = await fetch(`https://robohash.org/ds`);
+    return await res.json();
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 // reset letter input
 const resetLetterInput = () => {
   letterInput.disabled = false;
@@ -107,5 +120,6 @@ const resetLetterInput = () => {
 };
 
 fetchBtn.addEventListener("click", getData);
+fetchFileBtn.addEventListener("click", getFile);
 letterInput.addEventListener("input", changeLetter);
 resetInput.addEventListener("click", resetLetterInput);
