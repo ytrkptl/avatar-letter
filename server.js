@@ -20,7 +20,7 @@ if (process.env.NODE_ENV !== "production") {
   };
 } else {
   corsOptions = {
-    origin: "https://yatrik-math-app.herokuapp.com", //doesn't exist yet. this is just a dummy one.
+    origin: "*", //doesn't exist yet. this is just a dummy one.
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   };
 }
