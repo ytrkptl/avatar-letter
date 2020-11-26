@@ -2,9 +2,9 @@
 
 I made this to use in another app I am working on so that I don't have to rely on other Avatar libraries or providers, or maybe just for fun.
 
-The idea is to return a beautiful 3D-ish looking image to the user rather than the default ones we see in most applications while making sure to provide a variety of sizes, types (1 for now), and formats (2 for now) for free. They can also be non 3D-ish, but for now, it only contains one type, called type1, which looks 3D-ish
+The idea is to return a beautiful 3D-ish looking image to the user rather than the default ones we see in most applications while making sure to provide a variety of sizes, sets (1 for now), and formats (2 for now) for free. They can also be non 3D-ish, but for now, it only contains one set, called set1, which looks 3D-ish
 
-![sample big size avatar-letter](/public/letters/type1/a/a-big.png)
+![sample big size avatar-letter](/public/letters/set1/a/a-big.png)
 
 > 3D-ish looking avatar-letter provided by avatar-letter
 

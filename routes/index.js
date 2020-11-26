@@ -10,23 +10,19 @@ router.get("/", (req, res) => {
 router.get("/favicon.ico", (req, res) => res.status(200));
 
 //route for getting image file itself from public folder
-router.get("/avatar-letter/file/:size/:letter/:fileType", getFileFromDir);
+router.get("/avatar-letter/file/:set/:size/:letter/:fileType", getFileFromDir);
 
-/**
- * route for posting a completely new folder for completely new images
- * for example, adding type2 folder to public/letters
- *
- * @param inputFolderPath is the path where the images edited by yourself(the initial ones) are saved.
- * For example, an inputFolderPath might equal the following: "C:/Users/ytrkp/OneDrive/avatar-letter/edited images/type1"
- * @param outputFolderName is simply the name of the folder inside public/letters where you want to save the images.
- * For example, outputFolderName = "type2"
- * For example, outputFolderName = "special 3D font"
- */
-//
-router.post(
-  "/avatar-letter/:inputFolderPath/:outputFolderName",
-  addAnotherImageType
-);
+/*
+ route for posting a completely new folder for completely new images
+ for example, adding set2 folder to public/letters
+ this requires a req.body to contain "inputFolderPath" and "outputFolderName"
+ "inputFolderPath" is the path where the images edited by yourself(the initial ones) are saved.
+ For example, an inputFolderPath might equal the following: "C:/Users/ytrkp/OneDrive/avatar-letter/edited-images/set1"
+ "outputFolderName" is simply the name of the folder inside public/letters where you want to save the images.
+ For example, outputFolderName = "set2"
+ For example, outputFolderName = "special 3D font"
+*/
+router.post("/avatar-letter", addAnotherImageType);
 
 // router.post(
 //   "/avatar-letter/:inputFolderPath/:outputFolderName/:size/:letter/:fileType",

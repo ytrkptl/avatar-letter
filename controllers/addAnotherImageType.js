@@ -5,10 +5,10 @@ const { genCharArray } = require("../utils/helperFunctions");
 
 exports.addAnotherImageType = async (req, res, next) => {
   try {
-    // example inputFolderPath: "C:/Users/ytrkp/OneDrive/avatar-letter/edited images/type1"
-    const { inputFolderPath, outputFolderName } = req.params;
+    // example inputFolderPath: "C:/Users/ytrkp/OneDrive/avatar-letter/edited-images/set1"
+    const { inputFolderPath, outputFolderName } = req.body;
 
-    // example outPutFolderName = "type2" or "special 3D font"
+    // example outPutFolderName = "set2" or "special 3D font"
     const outputFolderPath = path.join(
       __dirname,
       "..",
@@ -18,7 +18,10 @@ exports.addAnotherImageType = async (req, res, next) => {
     );
 
     // will create an array of alphabets
-    const alphabetArray = genCharArray();
+    const alphabetArray = ["dot1"];
+
+    // lets return the image labeled "dot1" in case the letter input is undefined
+    // alphabetArray.push();
 
     // create folders for each letter if it doesn't already exist
     for (let i = 0; i < alphabetArray.length; i++) {
