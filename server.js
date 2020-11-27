@@ -12,25 +12,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
-let corsOptions;
-if (process.env.NODE_ENV !== "production") {
-  corsOptions = {
-    origin: "*",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  };
-} else {
-  corsOptions = {
-    origin: "*", //doesn't exist yet. this is just a dummy one.
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  };
-}
+let corsOptions = {
+  origin: "*", //doesn't exist yet. this is just a dummy one.
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 app.use(cors(corsOptions));
 
 //routes
 app.use("/api", routes);
 // error Handler middlerware. Must keep it down here at the very end
 app.use((req, res, next) => {
-  let err = new Error("Not Found");
+  let err = new Error(req.url + " Not Found");
   err.status = 404;
   next(err);
 });
