@@ -21,8 +21,13 @@ router.get("/file/:set/:size/:letter/:fileType", getFileFromDir);
  "outputFolderName" is simply the name of the folder inside public/letters where you want to save the images.
  For example, outputFolderName = "set2"
  For example, outputFolderName = "special 3D font"
+
+ made the endpoint really hard to keep others from trying to add to it
 */
-router.post("/avatar-letter", addAnotherImageType);
+router.post(
+  `/avatar-letter-${process.env.REALLY_REALLY_HARD_ENDPOINT_FOR_ADDING}`,
+  addAnotherImageType
+);
 //
 // router.post(
 //   "/avatar-letter/:inputFolderPath/:outputFolderName/:size/:letter/:fileType",
