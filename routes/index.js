@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 router.get("/favicon.ico", (req, res) => res.status(200));
 
 //route for getting image file itself from public folder
-router.get("/avatar-letter/file/:set/:size/:letter/:fileType", getFileFromDir);
+router.get("/file/:set/:size/:letter/:fileType", getFileFromDir);
 
 /*
  route for posting a completely new folder for completely new images
