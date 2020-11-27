@@ -5,7 +5,7 @@ exports.getFileFromDir = async (req, res, next) => {
     let { set, size, letter, fileType } = req.params;
     // find the first alphabet in the letter provided
     // if undefined, return the image labeled dot1
-    letter === (letter.match(/[a-zA-Z]/) || ["dot1"]).pop();
+    letter = (letter.match(/[a-zA-Z]/) || ["dot1"]).pop();
     // if no set is provided return from set1
     if (set === undefined) {
       set = "set1";
