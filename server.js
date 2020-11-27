@@ -24,9 +24,10 @@ connectMongoDB();
 
 //routes
 
+app.use("/api", routes);
 //added this route to prevent adding unnecessary error logs when visiting homepage
 app.use("/", (req, res) => res.json("it works!"));
-app.use("/api", routes);
+
 // error Handler middlerware. Must keep it down here at the very end
 app.use((req, res, next) => {
   let err = new Error(req.url + " Not Found");
