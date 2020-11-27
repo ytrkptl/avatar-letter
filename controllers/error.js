@@ -1,19 +1,20 @@
+const { ErrorMessage } = require("../db");
+
 const errorHandler = async (error, req, res, next) => {
   let doc = {
     messageForLog: error.messageForLog,
     messageSent: error.message,
   };
-  // try {
-  //   await ErrorMessage.create(doc);
-  // } catch (error) {
-  //   console.log(
-  //     "Error creating the following document in ErroMessage from line 12: " +
-  //       doc +
-  //       " " +
-  //       error.message
-  //   );
-  // }
-  console.log(doc);
+  try {
+    await ErrorMessage.create(doc);
+  } catch (error) {
+    console.log(
+      "Error creating the following document in ErroMessage from line 12: " +
+        doc +
+        " " +
+        error.message
+    );
+  }
 
   // for cases when we want to send success message despite of error
   // in backend.

@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const errorHandler = require("./controllers/error");
 const routes = require("./routes/index");
+const { connectMongoDB } = require("./db");
 
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
@@ -17,6 +18,9 @@ let corsOptions = {
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 app.use(cors(corsOptions));
+
+// connect to db
+connectMongoDB();
 
 //routes
 app.use("/api", routes);
