@@ -23,7 +23,7 @@ router.get("/file/:set/:size/:letter/:fileType", getFileFromDir);
  For example, outputFolderName = "special 3D font"
 */
 router.post("/avatar-letter", addAnotherImageType);
-
+//
 // router.post(
 //   "/avatar-letter/:inputFolderPath/:outputFolderName/:size/:letter/:fileType",
 //   addAnotherImageType
