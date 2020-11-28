@@ -4,11 +4,11 @@ I made this to use in another app I am working on so that I don't have to rely o
 
 The idea is to return a beautiful 3D-ish, stylish, cool, or unique-looking letter's image to the user rather than the default ones we see in most applications while making sure to provide a variety of sizes, sets (2 for now), and formats (2 for now) for free.
 
-![sample big size avatar-letter set1 image](/public/letters/set1/a/a-big.png)
+![sample large size avatar-letter set1 image](/public/letters/set1/a/a-large.png)
 
 > 3D-ish looking avatar-letter provided by avatar-letter's set1
 
-![sample big size avatar-letter set2 image](/public/letters/set2/a/a-big.png)
+![sample large size avatar-letter set2 image](/public/letters/set2/a/a-large.png)
 
 > Cool, stylish-looking avatar-letter provided by avatar-letter's set2
 
