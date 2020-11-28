@@ -22,16 +22,12 @@ router.get("/file/:set/:size/:letter/:fileType", getFileFromDir);
  For example, outputFolderName = "set2"
  For example, outputFolderName = "special 3D font"
 
- made the endpoint really hard to keep others from trying to add to it
+ made the endpoint really hard to keep others from trying to add to it by guessing it or something
 */
 router.post(
-  `/avatar-letter-${process.env.REALLY_REALLY_HARD_ENDPOINT_FOR_ADDING}`,
+  `/avatar-letter-jkKJK89jJk9kjjoaisdjfo898929323jHUKH8u99`,
   addAnotherImageType
 );
-//
-// router.post(
-//   "/avatar-letter/:inputFolderPath/:outputFolderName/:size/:letter/:fileType",
-//   addAnotherImageType
-// );
+// TODO: secure the endpoint above
 
 module.exports = router;
