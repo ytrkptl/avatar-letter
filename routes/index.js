@@ -2,15 +2,18 @@ const express = require("express");
 const router = express.Router();
 const { getFileFromDir } = require("../controllers/getFileFromDir");
 const { addAnotherImageType } = require("../controllers/addAnotherImageType");
-
-router.get("/", (req, res) => {
-  res.status(200).json("it works");
-});
-
-router.get("/favicon.ico", (req, res) => res.status(200));
+const {
+  getFileFromDirValidator,
+} = require("../validators/getFileFromDirValidator");
+const { runValidation } = require("../validators");
 
 //route for getting image file itself from public folder
-router.get("/file/:set/:size/:letter/:fileType", getFileFromDir);
+router.get(
+  "/file/:set/:size/:name/:fileType",
+  getFileFromDirValidator,
+  runValidation,
+  getFileFromDir
+);
 
 /*
  route for posting a completely new folder for completely new images
