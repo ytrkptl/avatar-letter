@@ -2,7 +2,7 @@
 
 I made this to use in another app I am working on so that I don't have to rely on other Avatar libraries or providers, or maybe just for fun.
 
-The idea is to return a beautiful 3D-ish, stylish, or cool looking image to the user rather than the default ones we see in most applications while making sure to provide a variety of sizes, sets (2 for now), and formats (2 for now) for free.
+The idea is to return a beautiful 3D-ish, stylish, cool, or unique-looking letter's image to the user rather than the default ones we see in most applications while making sure to provide a variety of sizes, sets (2 for now), and formats (2 for now) for free.
 
 ![sample big size avatar-letter set1 image](/public/letters/set1/a/a-big.png)
 
