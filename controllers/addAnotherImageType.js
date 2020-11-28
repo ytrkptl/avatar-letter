@@ -20,7 +20,7 @@ exports.addAnotherImageType = async (req, res, next) => {
     // will create an array of alphabets
     const alphabetArray = genCharArray("a", "z");
 
-    // lets return the image labeled "dot1" in case the letter input is undefined
+    // lets return the image labeled "dot1" in case the name input is undefined
     // alphabetArray.push("dot1");
 
     // create folders for each letter if it doesn't already exist
