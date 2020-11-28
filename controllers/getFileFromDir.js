@@ -2,11 +2,11 @@ const path = require("path");
 
 exports.getFileFromDir = async (req, res, next) => {
   try {
-    let { set, size, letter, fileType } = req.params;
-    // find the first alphabet in the letter provided
+    let { set, size, name, fileType } = req.params;
+    // find the first alphabet in the name provided
     // if undefined, return the image labeled dot1
-    letter = letter.toLowerCase();
-    letter = (letter.match(/[a-zA-Z]/) || ["dot1"]).pop();
+    name = name.toLowerCase();
+    name = (name.match(/[a-zA-Z]/) || ["dot1"]).pop();
     // if no set is provided return from set1
     if (set === undefined) {
       set = "set1";
@@ -14,9 +14,7 @@ exports.getFileFromDir = async (req, res, next) => {
     // path for finding the image files in the public/letters folder
     const img = path.join(__dirname, "..", "public", "letters");
     // return the image file
-    return res.sendFile(
-      `${img}/${set}/${letter}/${letter}-${size}.${fileType}`
-    );
+    return res.sendFile(`${img}/${set}/${name}/${name}-${size}.${fileType}`);
   } catch (error) {
     return next({
       messageForLog:
