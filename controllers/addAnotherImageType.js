@@ -54,6 +54,7 @@ exports.addAnotherImageType = async (req, res, next) => {
         .png({ compressionLevel: 9 })
         .toFile(path.join(outputFolderPath, `${el}`, `${el}-large.png`));
       sharp(path.join(inputFolderPath, `${el}.png`))
+        .resize({ width: 225, height: 225 })
         .png({ compressionLevel: 9 })
         .toFile(path.join(outputFolderPath, `${el}`, `${el}-full.png`));
 
@@ -79,6 +80,7 @@ exports.addAnotherImageType = async (req, res, next) => {
         .webp({ lossless: true })
         .toFile(path.join(outputFolderPath, `${el}`, `${el}-large.webp`));
       sharp(path.join(inputFolderPath, `${el}.png`))
+        .resize({ width: 225, height: 225 })
         .webp({ lossless: true })
         .toFile(path.join(outputFolderPath, `${el}`, `${el}-full.webp`));
     });
