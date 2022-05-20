@@ -50,15 +50,8 @@ exports.getFileFromDirValidator = [
     .isLength({ min: 1 })
     .escape()
     .withMessage("name is required")
-    .custom((value, { req }) => {
-      let check1 = checkAlphaNumeric(value);
-      let check2 = checkAlphaNumericOrWithAtSymbol(value);
-      let check3 = checkAlpha(value);
-      let check4 = checkNumeric(value);
-      let check5 = validateEmail(value);
-      const checkArray = [check1, check2, check3, check4, check5];
-      return checkArray.includes(true);
-    }),
+    .isAlpha()
+    .withMessage("name must include alphabets only."),
   check("fileType")
     .trim()
     .isLength({ min: 3 })
